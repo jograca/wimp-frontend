@@ -13,45 +13,46 @@ export class WimpService {
 
     private baseUrl = 'http://localhost:8080/';
 
-    found = false;
-    extractData;
-    handleError;
     apiUrl;
+    found = false;
 
-    constructor (private http: Http) {}
-
-    getRecords(endpoint: string): Observable<any> {
-        const apiUrl = this.baseUrl + endpoint;
-        return this.http.get(apiUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
+    constructor(private http: Http) { }
 
     getRecord(endpoint: string, id): Observable<object> {
-        const apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-        return this.http.get(apiUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
+        return this.http.get(`${this.baseUrl}${endpoint}/${id}`)
+            .map(result => {
+                return result.json();
+            }
+        );
     }
 
-    deleteRecord(endpoint: string, id: number): Observable<object> {
-        const apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-        return this.http.delete(apiUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
-    }
-
-    editRecord(endpoint: string, record: object, id: number): Observable<object> {
-        const apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-        return this.http.put(apiUrl, record)
-            .map(this.extractData)
-            .catch(this.handleError);
+    getRecords(endpoint: string): Observable<any> {
+        return this.http.get(`${this.baseUrl}${endpoint}`)
+            .map(result => {
+                return result.json();
+            }
+        );
     }
 
     addRecord(endpoint: string, record: object): Observable<any> {
-        const apiUrl = `${this.baseUrl}${endpoint}`;
-        console.log(apiUrl);
-        return this.http.post(apiUrl, record)
-            .map(this.extractData);
+        return this.http.post(`${this.baseUrl}${endpoint}`, record)
+            .map(result => {
+                return result.json();
+            }
+        );
     }
+
+    // deleteRecord(endpoint: string, id: number): Observable<object> {
+    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+    //     return this.http.delete(apiUrl)
+    //         .map(this.extractData)
+    //         .catch(this.handleError);
+    // }
+
+    // editRecord(endpoint: string, record: object, id: number): Observable<object> {
+    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+    //     return this.http.put(apiUrl, record)
+    //         .map(this.extractData)
+    //         .catch(this.handleError);
+    // }
 }

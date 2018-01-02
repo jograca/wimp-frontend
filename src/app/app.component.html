@@ -20,7 +20,7 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  
+
 <form class="form-horizontal">
   <div class="form-group">
     <label for="title" class="col-sm-2 control-label">Title</label>
@@ -52,3 +52,10 @@
     </div>
   </div>
 </form>
+
+<h4>Existing Movies in the Database</h4>
+<ul>
+    <li *ngFor="let movie of moviesInfo">
+      {{ movie.title }} 
+    </li>
+</ul>
