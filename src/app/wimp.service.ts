@@ -42,17 +42,19 @@ export class WimpService {
         );
     }
 
-    // deleteRecord(endpoint: string, id: number): Observable<object> {
-    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-    //     return this.http.delete(apiUrl)
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    // }
+    deleteRecord(endpoint: string, id: number): Observable<any> {
+        return this.http.delete(`${this.baseUrl}${endpoint}/${id}`)
+            .map(result => {
+                return result.json();
+            }
+        );
+    }
 
-    // editRecord(endpoint: string, record: object, id: number): Observable<object> {
-    //     let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
-    //     return this.http.put(apiUrl, record)
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    // }
+    editRecord(endpoint: string, record: object, id: number): Observable<any> {
+        return this.http.put(`${this.baseUrl}${endpoint}/${id}`, record)
+            .map(result => {
+                return result.json();
+            }
+        );
+    }
 }
