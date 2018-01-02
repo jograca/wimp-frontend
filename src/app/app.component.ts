@@ -9,12 +9,12 @@ import { WimpService } from './wimp.service';
 export class AppComponent implements OnInit {
 
   moviesInfo;
-  movieInfo;
+  actorsInfo;
 
   constructor(private wimpService: WimpService) {}
 
   getMoviesFromService() {
-    this.wimpService.getRecords('api/movies')
+    this.wimpService.getRecords('movies')
     .subscribe(
       moviesInfo => {
         this.moviesInfo = moviesInfo;
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   getMovieFromService() {
-    this.wimpService.getRecord('api/movies', 1)
+    this.wimpService.getRecord('movies', 1)
     .subscribe(
       moviesInfo => {
         this.moviesInfo = moviesInfo;
@@ -32,7 +32,9 @@ export class AppComponent implements OnInit {
   }
 
   addMovieUsingService(movie) {
-    this.wimpService.addRecord('api/movies', movie)
+    console.log('Clicked!');
+    console.log(movie.value);
+    this.wimpService.addRecord('movies', movie)
     .subscribe(
       moviesInfo => {
         this.moviesInfo = moviesInfo;
@@ -40,7 +42,37 @@ export class AppComponent implements OnInit {
     );
   }
 
+  getActorsFromService() {
+    this.wimpService.getRecords('actors')
+    .subscribe(
+      actorsInfo => {
+        this.actorsInfo = actorsInfo;
+      }
+    );
+  }
+
+  getActorFromService() {
+    this.wimpService.getRecord('actors', 1)
+    .subscribe(
+      actorsInfo => {
+        this.actorsInfo = actorsInfo;
+      }
+    );
+  }
+
+  addActorUsingService(actor) {
+    console.log('Clicked!');
+    console.log(actor.value);
+    this.wimpService.addRecord('actors', actor)
+    .subscribe(
+      actorsInfo => {
+        this.actorsInfo = actorsInfo;
+      }
+    );
+  }
+
   ngOnInit() {
     this.getMoviesFromService();
+    this.getActorsFromService();
   }
 }

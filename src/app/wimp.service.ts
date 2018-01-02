@@ -11,7 +11,7 @@ import 'rxjs/add/observable/empty';
 @Injectable()
 export class WimpService {
 
-    private baseUrl = 'http://localhost:8080/';
+    private baseUrl = 'http://localhost:8080/api/';
 
     apiUrl;
     found = false;
