@@ -74,8 +74,8 @@
       </tr>
       <tr *ngFor="let movie of moviesInfo">
         <td> {{ movie.title }}</td>
-        <td> {{ movie.releaseDate | date: 'mm/dd/yyyy' }}</td>
-        <td> {{ movie.budget }}</td>
+        <td> {{ movie.releaseDate | date }}</td>
+        <td> {{ movie.budget | currency }}</td>
         <td> {{ movie.distributor }}</td>
         <td>
           <button class="btn btn-warning" (click)='deleteMovieUsingService(movie.id)'>Delete</button>
@@ -136,7 +136,7 @@
       <tr *ngFor="let actor of actorsInfo">
         <td> {{ actor.firstName }}</td>
         <td> {{ actor.lastName }}</td>
-        <td> {{ actor.birthDate | date: 'mm/dd/yyyy' }}</td>
+        <td> {{ actor.birthDate | date }}</td>
         <td> {{ actor.activeSinceYear }}</td>
         <td>
           <button class="btn btn-warning" (click)='deleteActorUsingService(actor.id)'>Delete</button>
