@@ -3,3 +3,10 @@ node_js:
 - stable
 script:
 - ng build
+deploy:
+  provider: heroku
+  api_key:
+    secure: t8Dqvp2hzPz08ZznYTLBcNhwggDVWEC6sGYALgAJMi9wdXof6PflsV6f64Tj20RwOrgIF8eeD2vxnepoRMtwMpMQ7us1Is/IPE0sgJqjjI4lGp6sWilhEBstYg+d7ZMqC8VEZExLZUun/J9mx5Krql+rWVWP1cKLYoC6Psydbwdi9vU7PmWXvM4vdjyaYMTcKL/4K6L/rrCtN0rGyAJxJXBZ7AtNLpB8e+J8coln+0Kd82CbW9cWyLzfrVAL2asiOQBRV0Jnqhpeb2C075qAQ/hOR4FSRW9CTvc54Prz7dTk1WklctWXLpks/OpTDwDkhQ5H+wkascBArab6+TfPJPF/5KvHcvrQBMWCxL6+vuP0vfdCJNxTXR/bJRKsLZXOSdo4BTvq9FGE1lxRwOc4YWniOsXSuYsXJW127Hsz6W1o/Dl6k0yFlhNcHZyMgik5Gs49K5hENLjHbUnDjAQAjA8LcngWYLRlLs7fajNeBcSWAykowDprO59cNhn3koWGv5RCTIa9ZkNh0n4hLg7/D9WrCrmSXJXQhk8ySnXvIFBj7irYmT79gTLOO8YUHr8yPheZYzBOtpKB5bBnb6/jv2MHbaMUZ3YdW2zmdv5QmeVgCntBsZQR5Xh0/U5rSxVKsGys54PcvR5fFjWC20tp29/8ClL+c1V7yuQgK6HXLlE=
+  app: wimp-app
+  on:
+    repo: jograca/wimp-frontend
