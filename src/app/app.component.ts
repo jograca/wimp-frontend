@@ -82,6 +82,16 @@ export class AppComponent implements OnInit {
       );
   }
 
+  deleteActorUsingService(id: number) {
+    this.wimpService.deleteRecord('actors', id)
+      .subscribe(
+        actorsInfo => {
+        this.actorsInfo = actorsInfo;
+        this.getActorsFromService();
+      }
+      );
+  }
+
   ngOnInit() {
     this.getMoviesFromService();
     this.getActorsFromService();

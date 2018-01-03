@@ -59,26 +59,30 @@
         <button type="submit" class="btn btn-primary">Add Movie</button>
       </div>
     </div>
-    <div>
-      <h4>Existing Movies in the Database</h4>
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <th>Title</th>
-            <th>Release Date</th>
-            <th>Budget</th>
-            <th>Distributor</th>
-          </tr>
-          <tr *ngFor="let movie of moviesInfo">
-            <td> {{ movie.title }}</td>
-            <td> {{ movie.releaseDate | date: 'mm/dd/yyyy' }}</td>
-            <td> {{ movie.budget }}</td>
-            <td> {{ movie.distributor }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </form>
+</div>
+<div>
+  <h4>Existing Movies in the Database</h4>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Budget</th>
+        <th>Distributor</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let movie of moviesInfo">
+        <td> {{ movie.title }}</td>
+        <td> {{ movie.releaseDate | date: 'mm/dd/yyyy' }}</td>
+        <td> {{ movie.budget }}</td>
+        <td> {{ movie.distributor }}</td>
+        <td>
+          <button class="btn btn-warning" (click)='deleteMovieUsingService(movie.id)'>Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <hr>
@@ -116,24 +120,28 @@
         <button type="submit" class="btn btn-primary">Add Actor</button>
       </div>
     </div>
-    <div id="actors">
-      <h4>Existing Actors in the Database</h4>
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Birth Date</th>
-            <th>Active Since Year</th>
-          </tr>
-          <tr *ngFor="let actor of actorsInfo">
-            <td> {{ actor.firstName }}</td>
-            <td> {{ actor.lastName }}</td>
-            <td> {{ actor.birthDate | date: 'mm/dd/yyyy' }}</td>
-            <td> {{ actor.activeYear }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </form>
+</div>
+<div id="actors">
+  <h4>Existing Actors in the Database</h4>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Birth Date</th>
+        <th>Active Since Year</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let actor of actorsInfo">
+        <td> {{ actor.firstName }}</td>
+        <td> {{ actor.lastName }}</td>
+        <td> {{ actor.birthDate | date: 'mm/dd/yyyy' }}</td>
+        <td> {{ actor.activeYear }}</td>
+        <td>
+          <button class="btn btn-warning" (click)='deleteActorUsingService(actor.id)'>Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
