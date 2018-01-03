@@ -25,8 +25,8 @@ export class AppComponent implements OnInit {
     );
   }
 
-  getMovieFromService() {
-    this.wimpService.getRecord('movies', 1)
+  getMovieFromService(id: number) {
+    this.wimpService.getRecord('movies', id)
     .subscribe(
       moviesInfo => {
         this.moviesInfo = moviesInfo;
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  deleteMovieUsingService(id) {
+  deleteMovieUsingService(id: number) {
     this.wimpService.deleteRecord('movies', id)
     .subscribe(
       moviesInfo => {
@@ -64,8 +64,8 @@ export class AppComponent implements OnInit {
     );
   }
 
-  getActorFromService() {
-    this.wimpService.getRecord('actors', 1)
+  getActorFromService(id: number) {
+    this.wimpService.getRecord('actors', id)
     .subscribe(
       actorsInfo => {
         this.actorsInfo = actorsInfo;
