@@ -30,4 +30,4 @@ https://wimp-app-jon-g4c-indy-nov.herokuapp.com/
 
 #### Notes
 
-* Travis CI Config for front-end: pm i webpack --save-dev
+* Travis CI Config for front-end: npm i webpack --save-dev
