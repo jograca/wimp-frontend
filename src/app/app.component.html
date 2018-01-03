@@ -38,7 +38,7 @@
   <div class="form-group">
     <label for="release_date" class="col-sm-2 control-label">Release Date</label>
     <div class="col-sm-10">
-      <input type="text" ngModel #release_date="ngModel" name="relase_date" class="form-control" id="release_date" placeholder="">
+      <input type="date" ngModel #release_date="ngModel" name="relase_date" class="form-control" id="release_date" placeholder="">
     </div>
   </div>
   <div class="form-group">
@@ -70,7 +70,7 @@
         </tr>
         <tr *ngFor="let movie of moviesInfo">
           <td> {{ movie.title }}</td>
-          <td> {{ movie.releaseDate }}</td>
+          <td> {{ movie.releaseDate | date: 'mm/dd/yyyy' }}</td>
           <td> {{ movie.budget }}</td>
           <td> {{ movie.distributor }}</td>
         </tr>
@@ -99,7 +99,7 @@
   <div class="form-group">
     <label for="birthdate" class="col-sm-2 control-label">Birthdate</label>
     <div class="col-sm-10">
-      <input type="text" ngModel #birthdate="ngModel" name="birthdate" class="form-control" id="birthdate" placeholder="">
+      <input type="date" ngModel #birthdate="ngModel" name="birthdate" class="form-control" id="birthdate" placeholder="">
     </div>
   </div>
   <div class="form-group">
@@ -126,7 +126,7 @@
           <tr *ngFor="let actor of actorsInfo">
             <td> {{ actor.firstName }}</td>
             <td> {{ actor.lastName }}</td>
-            <td> {{ actor.birthDate }}</td>
+            <td> {{ actor.birthDate | date: 'mm/dd/yyyy' }}</td>
             <td> {{ actor.activeYear }}</td>
           </tr>
         </tbody>
