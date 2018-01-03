@@ -27,7 +27,6 @@ https://wimp-app-jon-g4c-indy-nov.herokuapp.com/
 #### TO-DO Items
 
 * Form validation on the front-end
-* Change to a multi-component Angular App (3 components: Navigation, Movies and Actors)
 * Fix Swagger API Documentation for the back-end
 
 #### Notes

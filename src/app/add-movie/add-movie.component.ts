@@ -12,8 +12,6 @@ export class AddMovieComponent implements OnInit {
   moviesInfo;
   addedMovie;
 
-  // @Input() wimpService;
-
   constructor(private wimpService: WimpService) { }
 
   getMoviesFromService() {
