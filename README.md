@@ -2,6 +2,8 @@
 
 GoForCode Homework Project for January 2nd
 
+Curretly works with Travis-CI Automation Depoying to Heroku (Deployment Details Below) for both Front-End and Back-End App components.
+
 In this project we created a single-page, one component Angular Front-End to interact with the WIMP APIs created in this project:
 
 https://github.com/jograca/wimp
@@ -25,8 +27,8 @@ https://wimp-app-jon-g4c-indy-nov.herokuapp.com/
 #### TO-DO Items
 
 * Form validation on the front-end
-* Fix Swagger API Documentation for the back-end
 * Change to a multi-component Angular App (3 components: Navigation, Movies and Actors)
+* Fix Swagger API Documentation for the back-end
 
 #### Notes
 
