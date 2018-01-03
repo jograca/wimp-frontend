@@ -67,12 +67,14 @@
           <th>Release Date</th>
           <th>Budget</th>
           <th>Distributor</th>
+          <th>Delete</th>
         </tr>
         <tr *ngFor="let movie of moviesInfo">
           <td> {{ movie.title }}</td>
           <td> {{ movie.releaseDate }}</td>
           <td> {{ movie.budget }}</td>
           <td> {{ movie.distributor }}</td>
+          <td><button class="btn btn-danger" (click)='deleteMovieUsingService(movie.id)'>Delete</button></td>
         </tr>
       </tbody>
     </table>
