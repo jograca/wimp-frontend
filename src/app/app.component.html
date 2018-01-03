@@ -26,9 +26,12 @@
   </div>
 </nav>
 
-<h3>Movies</h3>
+<br>
+<br>
+<br>
 
 <div id="movies" class="container-fluid">
+  <h3>Movies</h3>
   <form (ngSubmit)="addMovieUsingService(movieForm)" #movieForm="ngForm" class="form-horizontal">
     <div class="form-group">
       <label for="title" class="col-sm-2 control-label">Title</label>
@@ -87,10 +90,9 @@
 
 <hr>
 
-<h3 id="actors">Actors</h3>
-
-<div class="container-fluid">
-  <form id="actors" (ngSubmit)="addActorUsingService(actorForm)" #actorForm="ngForm" class="form-horizontal">
+<div id="actors" class="container-fluid">
+  <h3>Actors</h3>
+  <form (ngSubmit)="addActorUsingService(actorForm)" #actorForm="ngForm" class="form-horizontal">
     <div class="form-group">
       <label for="first_name" class="col-sm-2 control-label">First Name</label>
       <div class="col-sm-2">
