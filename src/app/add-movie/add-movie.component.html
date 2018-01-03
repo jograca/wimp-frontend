@@ -1,0 +1,61 @@
+<br>
+<br>
+<br>
+
+<div id="movies" class="container-fluid">
+    <h3>Movies</h3>
+    <form (ngSubmit)="addMovieUsingService(movieForm)" #movieForm="ngForm" class="form-horizontal">
+      <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-2">
+          <input type="text" ngModel #title="ngModel" name="title" class="form-control" id="title" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="release_date" class="col-sm-2 control-label">Release Date</label>
+        <div class="col-sm-2">
+          <input type="date" ngModel #releaseDate="ngModel" name="releaseDate" class="form-control" id="releaseDate" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="budget" class="col-sm-2 control-label">Budget</label>
+        <div class="col-sm-2">
+          <input type="text" ngModel #budget="ngModel" name="budget" class="form-control" id="budget" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="distributor" class="col-sm-2 control-label">Distributor</label>
+        <div class="col-sm-2">
+          <input type="text" ngModel #distributor="ngModel" name="distributor" class="form-control" id="distributor" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Add Movie</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="container-fluid">
+    <h4>Existing Movies in the Database</h4>
+    <table class="table table-striped table-hover table-condensed table-bordered">
+      <tbody>
+        <tr>
+          <th>Title</th>
+          <th>Release Date</th>
+          <th>Budget</th>
+          <th>Distributor</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let movie of moviesInfo">
+          <td> {{ movie.title }}</td>
+          <td> {{ movie.releaseDate | date }}</td>
+          <td> {{ movie.budget | currency }}</td>
+          <td> {{ movie.distributor }}</td>
+          <td>
+            <button class="btn btn-warning" (click)='deleteMovieUsingService(movie.id)'>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

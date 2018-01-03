@@ -1,0 +1,60 @@
+
+<hr>
+
+<div id="actors" class="container-fluid">
+  <h3>Actors</h3>
+  <form (ngSubmit)="addActorUsingService(actorForm)" #actorForm="ngForm" class="form-horizontal">
+    <div class="form-group">
+      <label for="first_name" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-2">
+        <input type="text" ngModel #firstName="ngModel" name="firstName" class="form-control" id="first_name" placeholder="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="last_name" class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-2">
+        <input type="text" ngModel #lastName="ngModel" name="lastName" class="form-control" id="last_name" placeholder="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="birthdate" class="col-sm-2 control-label">Birthdate</label>
+      <div class="col-sm-2">
+        <input type="date" ngModel #birthDate="ngModel" name="birthDate" class="form-control" id="birthDate" placeholder="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="active_year" class="col-sm-2 control-label">Active Since Year</label>
+      <div class="col-sm-2">
+        <input type="text" ngModel #activeSinceYear="ngModel" name="activeSinceYear" class="form-control" id="activeSinceYear" placeholder="">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Add Actor</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container-fluid col-sm-8">
+  <h4>Existing Actors in the Database</h4>
+  <table class="table table-striped table-hover table-condensed table-bordered">
+    <tbody>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Birth Date</th>
+        <th>Active Since Year</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let actor of actorsInfo">
+        <td> {{ actor.firstName }}</td>
+        <td> {{ actor.lastName }}</td>
+        <td> {{ actor.birthDate | date }}</td>
+        <td> {{ actor.activeSinceYear }}</td>
+        <td>
+          <button class="btn btn-warning" (click)='deleteActorUsingService(actor.id)'>Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
