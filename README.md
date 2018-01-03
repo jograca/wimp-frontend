@@ -26,5 +26,8 @@ https://wimp-app-jon-g4c-indy-nov.herokuapp.com/
 
 * Form validation on the front-end
 * Fix Swagger API Documentation for the back-end
-* Setup Travis-CI Automation (in progress, but broken right now) Update: F-E fix: npm i webpack --save-dev
 * Change to a multi-component Angular App (3 components: Navigation, Movies and Actors)
+
+#### Notes
+
+* Travis CI Config for front-end: pm i webpack --save-dev
