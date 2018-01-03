@@ -28,94 +28,97 @@
 
 <h3>Movies</h3>
 
-<form id="movies" (ngSubmit)="addMovieUsingService(movieForm)" #movieForm="ngForm" class="form-horizontal">
-  <div class="form-group">
-    <label for="title" class="col-sm-2 control-label">Title</label>
-    <div class="col-sm-10">
-      <input type="text" ngModel #title="ngModel" name="title" class="form-control" id="title" placeholder="">
+<div class="container-fluid">
+  <form id="movies" (ngSubmit)="addMovieUsingService(movieForm)" #movieForm="ngForm" class="form-horizontal">
+    <div class="form-group">
+      <label for="title" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" ngModel #title="ngModel" name="title" class="form-control" id="title" placeholder="">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="release_date" class="col-sm-2 control-label">Release Date</label>
-    <div class="col-sm-10">
-      <input type="date" ngModel #release_date="ngModel" name="relase_date" class="form-control" id="release_date" placeholder="">
+    <div class="form-group">
+      <label for="release_date" class="col-sm-2 control-label">Release Date</label>
+      <div class="col-sm-10">
+        <input type="date" ngModel #release_date="ngModel" name="relase_date" class="form-control" id="release_date" placeholder="">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="budget" class="col-sm-2 control-label">Budget</label>
-    <div class="col-sm-10">
-      <input type="text" ngModel #budget="ngModel" name="budget" class="form-control" id="budget" placeholder="">
+    <div class="form-group">
+      <label for="budget" class="col-sm-2 control-label">Budget</label>
+      <div class="col-sm-10">
+        <input type="text" ngModel #budget="ngModel" name="budget" class="form-control" id="budget" placeholder="">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="distributor" class="col-sm-2 control-label">Distributor</label>
-    <div class="col-sm-10">
-      <input type="text" ngModel #distributor="ngModel" name="distributor" class="form-control" id="distributor" placeholder="">
+    <div class="form-group">
+      <label for="distributor" class="col-sm-2 control-label">Distributor</label>
+      <div class="col-sm-10">
+        <input type="text" ngModel #distributor="ngModel" name="distributor" class="form-control" id="distributor" placeholder="">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-primary">Add Movie</button>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Add Movie</button>
+      </div>
     </div>
-  </div>
-  <div>
-    <h4>Existing Movies in the Database</h4>
-    <table class="table table-striped">
-      <tbody>
-        <tr>
-          <th>Title</th>
-          <th>Release Date</th>
-          <th>Budget</th>
-          <th>Distributor</th>
-        </tr>
-        <tr *ngFor="let movie of moviesInfo">
-          <td> {{ movie.title }}</td>
-          <td> {{ movie.releaseDate | date: 'mm/dd/yyyy' }}</td>
-          <td> {{ movie.budget }}</td>
-          <td> {{ movie.distributor }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</form>
+    <div>
+      <h4>Existing Movies in the Database</h4>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th>Title</th>
+            <th>Release Date</th>
+            <th>Budget</th>
+            <th>Distributor</th>
+          </tr>
+          <tr *ngFor="let movie of moviesInfo">
+            <td> {{ movie.title }}</td>
+            <td> {{ movie.releaseDate | date: 'mm/dd/yyyy' }}</td>
+            <td> {{ movie.budget }}</td>
+            <td> {{ movie.distributor }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
 
 <hr>
 
 <h3>Actors</h3>
 
-<form id="actors" (ngSubmit)="addActorUsingService(actorForm)" #actorForm="ngForm" class="form-horizontal">
-  <div class="form-group">
-    <label for="first_name" class="col-sm-2 control-label">First Name</label>
-    <div class="col-sm-10">
-      <input type="text" ngModel #firstName="ngModel" name="firstName" class="form-control" id="first_name" placeholder="">
+<div class="container-fluid">
+  <form id="actors" (ngSubmit)="addActorUsingService(actorForm)" #actorForm="ngForm" class="form-horizontal">
+    <div class="form-group">
+      <label for="first_name" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
+        <input type="text" ngModel #firstName="ngModel" name="firstName" class="form-control" id="first_name" placeholder="">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="last_name" class="col-sm-2 control-label">Last Name</label>
-    <div class="col-sm-10">
-      <input type="text" ngModel #lastName="ngModel" name="lastName" class="form-control" id="last_name" placeholder="">
+    <div class="form-group">
+      <label for="last_name" class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-10">
+        <input type="text" ngModel #lastName="ngModel" name="lastName" class="form-control" id="last_name" placeholder="">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="birthdate" class="col-sm-2 control-label">Birthdate</label>
-    <div class="col-sm-10">
-      <input type="date" ngModel #birthdate="ngModel" name="birthdate" class="form-control" id="birthdate" placeholder="">
+    <div class="form-group">
+      <label for="birthdate" class="col-sm-2 control-label">Birthdate</label>
+      <div class="col-sm-10">
+        <input type="date" ngModel #birthdate="ngModel" name="birthdate" class="form-control" id="birthdate" placeholder="">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="active_year" class="col-sm-2 control-label">Active Since Year</label>
-    <div class="col-sm-10">
-      <input type="text" ngModel #activeYear="ngModel" name="activeYear" class="form-control" id="active_year" placeholder="">
+    <div class="form-group">
+      <label for="active_year" class="col-sm-2 control-label">Active Since Year</label>
+      <div class="col-sm-10">
+        <input type="text" ngModel #activeYear="ngModel" name="activeYear" class="form-control" id="active_year" placeholder="">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-primary">Add Actor</button>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Add Actor</button>
+      </div>
     </div>
-  </div>
-  <div id="actors">
-    <h4>Existing Actors in the Database</h4>
-    <table class="table table-striped">
+    <div id="actors">
+      <h4>Existing Actors in the Database</h4>
+      <table class="table table-striped">
         <tbody>
           <tr>
             <th>First Name</th>
@@ -131,5 +134,6 @@
           </tr>
         </tbody>
       </table>
-  </div>
-</form>
+    </div>
+  </form>
+</div>
