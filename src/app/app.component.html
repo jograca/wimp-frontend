@@ -74,7 +74,7 @@
           <td> {{ movie.releaseDate }}</td>
           <td> {{ movie.budget }}</td>
           <td> {{ movie.distributor }}</td>
-        <!--  <td><button class="btn btn-danger" (click)='deleteMovieUsingService(movie.id)'>Delete</button></td> -->
+          <td><button class="btn btn-danger" (click)='nothing(movie.id)'>Delete</button></td>
         </tr>
       </tbody>
     </table>
@@ -124,12 +124,14 @@
             <th>Last Name</th>
             <th>Birth Date</th>
             <th>Active Since Year</th>
+            <th>Delete</th>
           </tr>
           <tr *ngFor="let actor of actorsInfo">
             <td> {{ actor.firstName }}</td>
             <td> {{ actor.lastName }}</td>
             <td> {{ actor.birthDate }}</td>
             <td> {{ actor.activeYear }}</td>
+            <td><button class="btn btn-danger" (click)='nothing(actor.id)'>Delete</button></td>
           </tr>
         </tbody>
       </table>
