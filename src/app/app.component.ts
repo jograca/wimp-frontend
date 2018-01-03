@@ -14,73 +14,72 @@ export class AppComponent implements OnInit {
   addedMovie;
   addedActor;
 
-  constructor(private wimpService: WimpService) {}
+  constructor(private wimpService: WimpService) { }
 
   getMoviesFromService() {
     this.wimpService.getRecords('movies')
-    .subscribe(
+      .subscribe(
       moviesInfo => {
         this.moviesInfo = moviesInfo;
       }
-    );
+      );
   }
 
   getMovieFromService(id: number) {
     this.wimpService.getRecord('movies', id)
-    .subscribe(
+      .subscribe(
       moviesInfo => {
         this.moviesInfo = moviesInfo;
       }
-    );
+      );
   }
 
   addMovieUsingService(movie: NgForm) {
     this.wimpService.addRecord('movies', movie.value)
-    .subscribe(
+      .subscribe(
       moviesInfo => {
         this.addedMovie = moviesInfo;
         this.getMoviesFromService();
       }
-     );
-
+      );
   }
 
   deleteMovieUsingService(id: number) {
     this.wimpService.deleteRecord('movies', id)
-    .subscribe(
+      .subscribe(
       moviesInfo => {
-        this.moviesInfo = moviesInfo; 
+        this.moviesInfo = moviesInfo;
         this.getMoviesFromService();
       }
-    );
+      );
   }
 
   getActorsFromService() {
     this.wimpService.getRecords('actors')
-    .subscribe(
+      .subscribe(
       actorsInfo => {
         this.actorsInfo = actorsInfo;
       }
-    );
+      );
   }
 
   getActorFromService(id: number) {
     this.wimpService.getRecord('actors', id)
-    .subscribe(
+      .subscribe(
       actorsInfo => {
         this.actorsInfo = actorsInfo;
       }
-    );
+      );
   }
 
   addActorUsingService(actor) {
     this.wimpService.addRecord('actors', actor.value)
-    .subscribe(
+      .subscribe(
       actorsInfo => {
         this.addedActor = actorsInfo;
         this.getActorsFromService();
       }
-    );
+      );
   }
 
   ngOnInit() {
