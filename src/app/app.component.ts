@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
     this.wimpService.deleteRecord('movies', id)
     .subscribe(
       moviesInfo => {
+        this.moviesInfo = moviesInfo; 
         this.getMoviesFromService();
       }
     );
