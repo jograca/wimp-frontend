@@ -13,48 +13,68 @@ export class WimpService {
 
     private baseUrl = 'http://localhost:8080/api/';
 
-    apiUrl;
     found = false;
 
-    constructor(private http: Http) { }
+    constructor (private http: Http) {}
+
+    getRecords(endpoint: string): Observable<any[]> {
+        const apiUrl = this.baseUrl + endpoint;
+        return this.http.get(apiUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
 
     getRecord(endpoint: string, id): Observable<object> {
-        return this.http.get(`${this.baseUrl}${endpoint}/${id}`)
-            .map(result => {
-                return result.json();
-            }
-        );
+        const apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+        return this.http.get(apiUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
     }
 
-    getRecords(endpoint: string): Observable<any> {
-        return this.http.get(`${this.baseUrl}${endpoint}`)
-            .map(result => {
-                return result.json();
-            }
-        );
+    deleteRecord(endpoint: string, id: number): Observable<object> {
+        const apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+        return this.http.delete(apiUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
     }
 
-    addRecord(endpoint: string, record: object): Observable<any> {
-        return this.http.post(`${this.baseUrl}${endpoint}`, record)
-            .map(result => {
-                return result.json();
-            }
-        );
+    editRecord(endpoint: string, record: object, id: number): Observable<object> {
+        const apiUrl = `${this.baseUrl}${endpoint}/${id}`;
+        return this.http.put(apiUrl, record)
+            .map(this.extractData)
+            .catch(this.handleError);
     }
 
-    deleteRecord(endpoint: string, id: number): Observable<any> {
-        return this.http.delete(`${this.baseUrl}${endpoint}/${id}`)
-            .map(result => {
-                return result.json();
-            }
-        );
+    addRecord(endpoint: string, record: object): Observable<any[]> {
+        const apiUrl = `${this.baseUrl}${endpoint}`;
+        console.log(apiUrl);
+        return this.http.post(apiUrl, record)
+            .map(this.extractData);
     }
 
-    editRecord(endpoint: string, record: object, id: number): Observable<any> {
-        return this.http.put(`${this.baseUrl}${endpoint}/${id}`, record)
-            .map(result => {
-                return result.json();
-            }
-        );
+
+    private extractData(res: Response) {
+        const results = res.json();
+        return results || [];
     }
+
+    private handleError(error: Response | any) {
+        // In a real world app, you might use a remote logging infrastructure
+        let errMsg: string;
+        if (typeof error._body === 'string') {
+            errMsg = error._body;
+        }else {
+            if (error instanceof Response) {
+                if (error.status === 0) {
+                    errMsg = 'Error connecting to API';
+                }else {
+                    const errorJSON = error.json();
+                    errMsg = errorJSON.message;
+                }
+            }
+        }
+
+        return Observable.throw(errMsg);
+    }
+
 }

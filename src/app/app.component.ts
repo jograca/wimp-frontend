@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WimpService } from './wimp.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,8 @@ export class AppComponent implements OnInit {
 
   moviesInfo;
   actorsInfo;
+  addedMovie;
+  addedActor;
 
   constructor(private wimpService: WimpService) {}
 
@@ -31,15 +34,15 @@ export class AppComponent implements OnInit {
     );
   }
 
-  addMovieUsingService(movie) {
-    console.log('Clicked!');
-    console.log(movie.value);
-    this.wimpService.addRecord('movies', movie)
+  addMovieUsingService(movie: NgForm) {
+    this.wimpService.addRecord('movies', movie.value)
     .subscribe(
       moviesInfo => {
-        this.moviesInfo = moviesInfo;
+        this.addedMovie = moviesInfo;
+        this.getMoviesFromService();
       }
-    );
+     );
+
   }
 
   getActorsFromService() {
@@ -61,12 +64,11 @@ export class AppComponent implements OnInit {
   }
 
   addActorUsingService(actor) {
-    console.log('Clicked!');
-    console.log(actor.value);
-    this.wimpService.addRecord('actors', actor)
+    this.wimpService.addRecord('actors', actor.value)
     .subscribe(
       actorsInfo => {
-        this.actorsInfo = actorsInfo;
+        this.addedActor = actorsInfo;
+        this.getActorsFromService();
       }
     );
   }
