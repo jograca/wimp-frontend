@@ -10,7 +10,7 @@ https://github.com/jograca/wimp
 
 Details: 
 
-* Front-End accepts user entered fields and sends json to the backend API, which upadtes the Database with new records for both Movies and Actors
+* Front-End accepts user entered fields and sends json to the backend API, which upates the Database with new records for both Movies and Actors
 * Front-End also displays all entries in the Movies and Actors Database from the connected API
 * New Movie or Actor entries will add to the list in real-time when submitted
 
