@@ -11,7 +11,8 @@ import 'rxjs/add/observable/empty';
 @Injectable()
 export class WimpService {
 
-    private baseUrl = 'http://localhost:8080/api/';
+    // private baseUrl = 'http://localhost:8080/api/';
+    private baseUrl = 'https://wimp-app-jon-g4c-indy-nov.herokuapp.com/api/';
 
     found = false;
 
@@ -47,7 +48,6 @@ export class WimpService {
 
     addRecord(endpoint: string, record: object): Observable<any[]> {
         const apiUrl = `${this.baseUrl}${endpoint}`;
-        console.log(apiUrl);
         return this.http.post(apiUrl, record)
             .map(this.extractData);
     }
