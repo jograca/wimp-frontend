@@ -137,7 +137,7 @@
         <td> {{ actor.firstName }}</td>
         <td> {{ actor.lastName }}</td>
         <td> {{ actor.birthDate | date: 'mm/dd/yyyy' }}</td>
-        <td> {{ actor.activeYear }}</td>
+        <td> {{ actor.activeSinceYear }}</td>
         <td>
           <button class="btn btn-warning" (click)='deleteActorUsingService(actor.id)'>Delete</button>
         </td>
